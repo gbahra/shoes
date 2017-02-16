@@ -30,7 +30,6 @@ router.route('/sessions')
 router.route('/sessions/new')
       .get(sessionsController.new);
 
-
 // shoes
 router.route('/')
       .get(shoesController.index)
