@@ -27,7 +27,6 @@ function newShoes(req , res) {
   price : 0,
   year: 0
   }
-
   res.render("shoes/new" , {
     title: "New Shoes",
     shoe: newShoes

@@ -6,6 +6,7 @@ var router = require('./config/routes');
 var layouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var flash = require('connect-flash');
 
 app.listen(port, function() {
   console.log("The server is on and listening on port " + port);
@@ -14,7 +15,13 @@ app.listen(port, function() {
 mongoose.connect('mongodb://localhost/shoes', function() {
   console.log('database connected.')
 })
-
+app.use(cookieParser());
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'spartasupersecretkey'
+}));
+app.use(flash());
 app.set('view engine' , 'ejs');
 
 // use express layouts middleware too
@@ -33,6 +40,9 @@ app.use(methodOverride(function(req, res){
     delete req.body._method
     return method
   }
+
+
+
 }));
 
 // tell express to use ejs for rendering templates
