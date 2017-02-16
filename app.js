@@ -3,12 +3,9 @@ var app = express();
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var router = require('./config/routes');
-var ejs = require('express-ejs-layouts');
-var bodyParser = require('bod-parser');
+var layouts = require('express-ejs-layouts');
+var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-
-
-
 
 app.listen(port, function() {
   console.log("The server is on and listening on port " + port);
@@ -18,6 +15,10 @@ mongoose.connect('mongodb://localhost/shoes', function() {
   console.log('database connected.')
 })
 
+app.set('view engine' , 'ejs');
+
+// use express layouts middleware too
+app.use(layouts);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -35,8 +36,7 @@ app.use(methodOverride(function(req, res){
 }));
 
 // tell express to use ejs for rendering templates
-app.set('view engine' , 'ejs');
 
-// use express layouts middleware too
-app.use(layouts);
-app.use(routes);
+app.use(router);
+
+module.exports = app;

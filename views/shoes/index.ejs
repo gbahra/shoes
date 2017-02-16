@@ -1,9 +1,9 @@
 <h1>All shoes</h1>
-<% for (var i = 0; i<shoes; i++){%>
-  <h3><%=name[i]=></h3>
-  <p><%=colorway[i]=></p>
-  <p><%=material[i]=></p>
-  <p><%=price[i]=></p>
-  <p><%=year[i]=></p>
-  <p><%=image[i]=></p>
+<% for (var i = 0; i<shoes.length; i++){%>
+  <h3><%=shoes[i].name%></h3>
+  <p><%=shoes[i].colorway%></p>
+  <p><%=shoes[i].material%></p>
+  <p><%=shoes[i].price%></p>
+  <p><%=shoes[i].year%></p>
+  <p><%=shoes[i].image%></p>
 <%}%>

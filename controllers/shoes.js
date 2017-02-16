@@ -4,7 +4,6 @@ function indexShoes(req, res) {
   Shoes.find({} , function(err, shoes) {
     if(err) return res.status(500).send(err);
     res.render("shoes/index" , {
-      title: "Shoes",
       shoes: shoes
     });
   });
@@ -15,7 +14,6 @@ function showShoes(req, res) {
     if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
     res.render("shoes/show" , {
-      title: "Shoes",
       shoe: shoe
     });
   });
@@ -60,6 +58,7 @@ function updateShoes(req, res) {
     { $set:  req.body },
     { runValidators: true },
     function(err , shoe){
+      console.log(shoe)
       if(err) return res.status(500).send(err);
       res.redirect("/");
     }

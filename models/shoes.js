@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var ShoeSchema = new mongoose.Schema({
   name : {type: String, required:true},
   colorway : {type: String, required:true},
-  material : {type: String, required:true},
+  materials : {type: String, required:true},
   price : {type: Number, required:true},
   year: {type: Number, required:true},
   image: {type: String}
@@ -14,6 +14,7 @@ var ShoeSchema = new mongoose.Schema({
   // put brand in the front of names
   // add images
   //strech goal making name and colorway unique together but not separate
+  //material don't show up prob validation shit
 });
 
 module.exports = mongoose.model('Shoe' , ShoeSchema);
