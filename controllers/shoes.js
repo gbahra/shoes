@@ -1,6 +1,6 @@
-var Shoes = require('../models/car');
+var Shoes = require('../models/shoes');
 
-function indexShoess(req, res) {
+function indexShoes(req, res) {
   Shoes.find({} , function(err, shoes) {
     if(err) return res.status(500).send(err);
     res.render("shoes/index" , {
@@ -10,75 +10,74 @@ function indexShoess(req, res) {
   });
 }
 
-function showShoess(req, res) {
-  Shoes.findById(req.params.id , function(err, car) {
-    if(!car) return res.status(404).send("Not found");
+function showShoes(req, res) {
+  Shoes.findById(req.params.id , function(err, shoe) {
+    if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
     res.render("shoes/show" , {
       title: "Shoes",
-      car: car
+      shoe: shoe
     });
   });
 }
 
-function newShoess(req , res) {
+function newShoes(req , res) {
   var newShoes = {
-    color: "",
-    make: "",
-    model: "",
-    bhp: 0,
-    year: 0,
-    miles: 0
+  name : "",
+  colorway : "",
+  material : "",
+  price : 0,
+  year: 0
   }
 
   res.render("shoes/new" , {
     title: "New Shoes",
-    car: newShoes
+    shoe: newShoes
   });
 }
 
-function createShoess(req, res) {
-  Shoes.create(req.body, function(err, car){
+function createShoes(req, res) {
+  Shoes.create(req.body, function(err, shoe){
     if(err) return res.status(500).send(err);
     res.redirect("/");
   });
 }
 
-function editShoess(req, res) {
-  Shoes.findById(req.params.id , function(err, car) {
-    if(!car) return res.status(404).send("Not found");
+function editShoes(req, res) {
+  Shoes.findById(req.params.id , function(err, shoe) {
+    if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
     res.render("shoes/edit" , {
       title: "Shoes",
-      car: car
+      shoe: shoe
     });
   });
 }
 
-function updateShoess(req, res) {
+function updateShoes(req, res) {
   Shoes.findByIdAndUpdate(
     req.params.id,
     { $set:  req.body },
     { runValidators: true },
-    function(err , car){
+    function(err , shoe){
       if(err) return res.status(500).send(err);
       res.redirect("/");
     }
   );
 }
 
-function deleteShoess(req , res) {
+function deleteShoes(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
     res.redirect("/");
   });
 }
 
 module.exports = {
-  index: indexShoess,
-  show: showShoess,
-  new: newShoess,
-  create: createShoess,
-  edit: editShoess,
-  update: updateShoess,
-  delete: deleteShoess
+  index: indexShoes,
+  show: showShoes,
+  new: newShoes,
+  create: createShoes,
+  edit: editShoes,
+  update: updateShoes,
+  delete: deleteShoes
 }

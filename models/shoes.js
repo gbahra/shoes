@@ -1,4 +1,4 @@
-var mongoose = reuqire('mongoose');
+var mongoose = require('mongoose');
 
 var ShoeSchema = new mongoose.Schema({
   name : {type: String, required:true},
@@ -8,7 +8,6 @@ var ShoeSchema = new mongoose.Schema({
   year: {type: Number, required:true}
   //price is actually value
   //check legit material
-
   //maybe have brand for search purposes but for now
   // put brand in the front of names
 });

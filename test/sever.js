@@ -3,7 +3,8 @@ var chaiHttp = require('chai-http');
 var app = require('../app');
 var should = chai.should();
 var expect = require('chai').expect;
-var Shoe = require('../models/shoe');
+var Shoe = require('../models/shoes');
+var mongoose = require('mongoose');
 
 chai.use(chaiHttp);
 
