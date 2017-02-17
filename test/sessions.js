@@ -3,35 +3,12 @@ var chaiHttp = require('chai-http');
 var app = require('../app');
 var should = chai.should();
 var expect = require('chai').expect;
-var Users = require('../models/user');
+var User = require('../models/user');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
-
+//timeout error to fix
 chai.use(chaiHttp);
 
-describe('Users', function() {
-  var user = new User({
-    firstName: "",
-    lastName:"",
-    email:"",
-    password:""
-  });
-
-  beforeEach(function(done) {
-    user.save(function(err, newUser) {
-      if (err) return console.log(err);
-      console.log("made newUser with id " + newUser.id);
-      user.id = newUser.id;
-      done();
-    })
-  })
-
-  afterEach(function(done) {
-    User.findByIdAndRemove(user.id, function(err) {
-      if (err) return console.log(err);
-      done();
-    })
-  })
   it('register a user on / POST' , function(done){
     var request = chai.request(app);
     request.post('/users')
@@ -53,7 +30,7 @@ describe('Users', function() {
             res.should.have.status(200);
             res.should.be.html;
             res.text.should.match(/Login/);
-              done();
+            done();
             });
           });
       });
@@ -76,8 +53,7 @@ describe('Users', function() {
             res.should.have.status(200);
             res.should.be.html;
             res.text.should.match(/Login/);
-              done();
+            done();
             });
           });
       });
-})

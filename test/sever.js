@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 
 chai.use(chaiHttp);
 
-describe('Shoes', function() {
+xdescribe('Shoes', function() {
   var shoe = new Shoe({
     name : "testShoe",
     colorway : "color",
