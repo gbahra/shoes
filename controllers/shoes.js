@@ -46,7 +46,6 @@ function editShoes(req, res) {
     if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
     res.render("shoes/edit" , {
-      title: "Shoes",
       shoe: shoe
     });
   });

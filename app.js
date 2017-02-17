@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var User= require("./models/user");
 
 app.listen(port, function() {
   console.log("The server is on and listening on port " + port);

@@ -1,3 +1,5 @@
+var User= require("../models/user")
+
 function newUser(req , res) {
 
   // create an empty user
