@@ -50,7 +50,7 @@ app.use(methodOverride(function(req, res){
 }));
 
 app.set('view engine' , 'ejs');
-
+app.use(express.static('public'));
 // use express layouts middleware too
 app.use(layouts);
 
