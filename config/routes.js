@@ -8,7 +8,7 @@ var shoesApiController = require('../controllers/api/shoes');
  // API section
  router.route('/api/shoes')
    .get(shoesApiController.index)
-   .post(shoessApiController.create);
+   .post(shoesApiController.create);
 
  router.route('/api/shoes/:id')
    .get(shoesApiController.show)

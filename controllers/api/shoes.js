@@ -1,4 +1,4 @@
-var Shoes = require('../models/shoes');
+var Shoes = require('../../models/shoes');
 
 function indexApi(req, res) {
 
@@ -30,7 +30,7 @@ function createApi(req, res) {
 }
 
 
-function updateShoes(req, res) {
+function updateApi(req, res) {
   Shoes.findByIdAndUpdate(
     req.params.id,
     { $set:  req.body },
@@ -44,7 +44,7 @@ function updateShoes(req, res) {
   );
 }
 
-function deleteShoes(req , res) {
+function deleteApi(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
     //sucess message in flash
   });
@@ -54,8 +54,8 @@ function deleteShoes(req , res) {
 module.exports = {
   index: indexApi,
   show: showApi,
-  create: createApi
-  update: updateApi
+  create: createApi,
+  update: updateApi,
   delete: deleteApi
 }
 
