@@ -7,6 +7,8 @@ var layouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 app.listen(port, function() {
   console.log("The server is on and listening on port " + port);
@@ -15,13 +17,55 @@ app.listen(port, function() {
 mongoose.connect('mongodb://localhost/shoes', function() {
   console.log('database connected.')
 })
+
 app.use(cookieParser());
+
 app.use(session({
   resave: false,
   saveUninitialized: true,
   secret: 'spartasupersecretkey'
 }));
+
+
 app.use(flash());
+
+app.use(function(req, res, next){
+    // res.locals will be available in every template
+    res.locals.errors = req.flash('error');
+    console.log(res.locals.errors);
+    next();
+});
+
+app.use(function(req,res,next) {
+
+  // no user id? just move on
+  if(!req.session.user) {
+     res.locals.user = false;
+    next();
+  } else {
+    // load the user with the ID in the session
+    User.findById(req.session.user , function(err, user){
+
+      if(user) {
+        // add the user to the request object
+        req.user = user;
+        // add it to locals so we can use it in all templates
+        res.locals.user = user;
+      } else {
+        // couldn't find it... that's weird. clear the session
+        req.session.user = null;
+      }
+      next(err);
+    });
+  }
+});
+
+app.use(function(req, res, next) {
+  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
+  if(urls.indexOf(req.url) === -1) {
+    if (!req.user) return res.redirect('/sessions/new')
+    }
+});
 app.set('view engine' , 'ejs');
 
 // use express layouts middleware too
@@ -40,8 +84,6 @@ app.use(methodOverride(function(req, res){
     delete req.body._method
     return method
   }
-
-
 
 }));
 

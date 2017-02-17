@@ -35,7 +35,7 @@ function newShoes(req , res) {
 
 function createShoes(req, res) {
   Shoes.create(req.body, function(err, shoe){
-    if(err) return res.status(500).send(err);
+     if(err) req.flash('error' , err.message);
     res.redirect("/");
   });
 }

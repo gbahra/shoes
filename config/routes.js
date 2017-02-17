@@ -5,15 +5,15 @@ var usersController = require('../controllers/users');
 var sessionsController = require('../controllers/sessions');
 var shoesApiController = require('../controllers/api/shoes');
 
-// // API section
-//  router.route('/api/posts')
-//    .get(shoesApiController.index)
-//    .post(shoessApiController.create);
+ // API section
+  // router.route('/api/posts')
+  //   .get(shoesApiController.index)
+  //   .post(shoessApiController.create);
 
-//  router.route('/api/posts/:id')
-//    .get(shoesApiController.show)
-//    .put(shoesApiController.update)
-//    .delete(shoesApiController.delete);
+  // router.route('/api/posts/:id')
+  //   .get(shoesApiController.show)
+  //   .put(shoesApiController.update)
+  //   .delete(shoesApiController.delete);
 
 // users
  router.route('/users')
