@@ -40,8 +40,7 @@ describe('Shoes', function() {
       .get('/api' + shoe.id)
       .end(function(err, res){
         res.should.have.status(200);
-        res.should.be.html;
-        res.text.should.match(/All shoes/);
+        res.should.be.json;
         res.text.should.match(/testShoe/);
         done();
       });
@@ -53,8 +52,7 @@ describe('Shoes', function() {
       .get('/')
       .end(function(err, res){
         res.should.have.status(200);
-        res.should.be.html;
-        res.text.should.match(/All shoes/);
+        res.should.be.json;
         res.text.should.match(/Air Jordan 1 Bred/);
         done();
       });
@@ -74,13 +72,12 @@ describe('Shoes', function() {
       .end(function(err, res){
         if(err) console.log(err)
         res.should.have.status(200);
-        res.should.be.html;
-        res.text.should.match(/All shoes/);
+        res.should.be.json;
         request
           .get('/api/shoes')
           .end(function(err, res){
             res.should.have.status(200);
-            res.should.be.html;
+            res.should.be.json;
             res.text.should.match(/shoes/);
             res.text.should.match(/colours/);
               done();
@@ -97,13 +94,13 @@ describe('Shoes', function() {
       .send({'colorway': 'blue'})
       .end(function(err, res){
         res.should.have.status(200);
-        res.should.be.html;
+        res.should.be.json;
         res.text.should.match(/All shoes/);
         request
           .get('/api/shoes')
           .end(function(err, res){
             res.should.have.status(200);
-            res.should.be.html;
+            res.should.be.json;
             res.text.should.match(/blue/);
             done();
           });
@@ -115,7 +112,7 @@ describe('Shoes', function() {
     request.delete('/api/shoes' + shoe.id)
       .end(function(err, res){
         res.should.have.status(200);
-        res.should.be.html;
+        res.should.be.json;
         res.text.should.match(/All shoes/);
         request
           .get('/api/shoes'+ shoe.id)

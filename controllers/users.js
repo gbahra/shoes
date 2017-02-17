@@ -16,7 +16,6 @@ function createUser(req,res){
 
     // check for errors and return 500 if there was a problem
     if(err) req.flash('error' , err.message);
-
     // redirect to the posts index page
     res.redirect("/");
 
