@@ -22,8 +22,10 @@ function showApi(req, res) {
 
 function createApi(req, res) {
   Shoes.create(req.body, function(err, shoe){
-     if(err) req.flash('error' , err.message);
-    res.redirect("/");
+    if(err) req.flash('error' , err.message);
+      res.json({
+      shoe: shoe
+      });
   });
 }
 
@@ -34,15 +36,17 @@ function updateShoes(req, res) {
     { $set:  req.body },
     { runValidators: true },
     function(err , shoe){
-      console.log(shoe)
       if(err) return res.status(500).send(err);
-      res.redirect("/");
+      res.json({
+        shoe: shoe
+      });
     }
   );
 }
 
 function deleteShoes(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
+    //sucess message in flash
   });
 }
 
