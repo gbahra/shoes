@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var ShoeSchema = new mongoose.Schema({
   name : {type: String, required:true},
+  image: {type: String},
   colorway : {type: String, required:true},
   materials : {type: String, required:true},
   price : {type: Number, required:true},

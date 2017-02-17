@@ -1,11 +1,17 @@
 <div class="jumbotron text-center">
   <h1>All shoes</h1>
 </div>
-<% for (var i = 0; i<shoes.length; i++){%>
-  <h3><%=shoes[i].name%></h3>
-  <p><%=shoes[i].colorway%></p>
-  <p><%=shoes[i].material%></p>
-  <p><%=shoes[i].price%></p>
-  <p><%=shoes[i].year%></p>
-  <p><%=shoes[i].image%></p>
-<%}%>
+<div class="container">
+  <div class="row">
+    <% for (var i = 0; i<shoes.length; i++){%>
+      <div class="col-sm-4">
+        <h3><a href="/<%=shoes[i].id%>"><%=shoes[i].name%></a></h3>
+        <img src=<%=shoes[i].image%>>
+        <p><%=shoes[i].colorway%></p>
+        <p><%=shoes[i].material%></p>
+        <p><%=shoes[i].price%></p>
+        <p><%=shoes[i].year%></p>
+      </div>
+    <%}%>
+  </div>
+</div>
