@@ -7,8 +7,7 @@ function newUser(req , res) {
     body: ""
   }
 
-  res.render("posts/new" , {
-    title: "Register",
+  res.render("users/new" , {
     user: newUser
   });
 }

@@ -60,12 +60,7 @@ app.use(function(req,res,next) {
   }
 });
 
-app.use(function(req, res, next) {
-  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
-  if(urls.indexOf(req.url) === -1) {
-    if (!req.user) return res.redirect('/sessions/new')
-    }
-});
+
 app.set('view engine' , 'ejs');
 
 // use express layouts middleware too
@@ -87,7 +82,14 @@ app.use(methodOverride(function(req, res){
 
 }));
 
-// tell express to use ejs for rendering templates
+
+app.use(function(req, res, next) {
+  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
+  if(urls.indexOf(req.url) === -1) {
+    if (!req.user) return res.redirect('/sessions/new')
+    }
+  next()
+});
 
 app.use(router);
 
