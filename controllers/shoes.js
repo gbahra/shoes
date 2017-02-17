@@ -1,6 +1,7 @@
 var Shoes = require('../models/shoes');
 
 function indexShoes(req, res) {
+
   Shoes.find({} , function(err, shoes) {
     if(err) return res.status(500).send(err);
     res.render("shoes/index" , {

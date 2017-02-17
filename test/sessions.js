@@ -3,7 +3,7 @@ var chaiHttp = require('chai-http');
 var app = require('../app');
 var should = chai.should();
 var expect = require('chai').expect;
-var Users = require('../models/users');
+var Users = require('../models/user');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 
