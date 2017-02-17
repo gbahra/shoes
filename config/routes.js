@@ -6,11 +6,11 @@ var sessionsController = require('../controllers/sessions');
 var shoesApiController = require('../controllers/api/shoes');
 
  // API section
- router.route('/api/posts')
+ router.route('/api/shoes')
    .get(shoesApiController.index)
    .post(shoessApiController.create);
 
- router.route('/api/posts/:id')
+ router.route('/api/shoes/:id')
    .get(shoesApiController.show)
    .put(shoesApiController.update)
    .delete(shoesApiController.delete);
