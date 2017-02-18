@@ -4,7 +4,7 @@ var Shoes = require('../../models/shoes');
 function indexApi(req, res) {
   Shoes.find({} , function(err, shoes) {
     if(err) return res.status(500).json(err);
-    res.json({
+    res.status(200).json({
       shoes: shoes
     });
   });
@@ -14,7 +14,7 @@ function showApi(req, res) {
   Shoes.findById(req.params.id , function(err, shoe) {
     if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
-    res.json({
+    res..status(200).json({
       shoe: shoe
     });
   });
@@ -23,7 +23,7 @@ function showApi(req, res) {
 function createApi(req, res) {
   Shoes.create(req.body, function(err, shoe){
     if(err) req.flash('error' , err.message);
-      res.json({
+      res.status(201).json({
       shoe: shoe,
       message:created
       });
@@ -38,7 +38,7 @@ function updateApi(req, res) {
     { runValidators: true },
     function(err , shoe){
       if(err) return res.status(500).send(err);
-      res.json({
+      res.status(204).json({
         message:updated
         shoe: shoe
       });
