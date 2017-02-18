@@ -57,7 +57,6 @@ function updateShoes(req, res) {
     { $set:  req.body },
     { runValidators: true },
     function(err , shoe){
-      console.log(shoe)
       if(err) return res.status(500).send(err);
       res.redirect("/");
     }

@@ -22,6 +22,9 @@ var shoesApiController = require('../controllers/api/shoes');
  router.route('/users/new')
        .get(usersController.new);
 
+ router.route('users/:id')
+      .put(usersController.update);
+
  // API section
  router.route('/api/shoes')
    .get(shoesApiController.index)
