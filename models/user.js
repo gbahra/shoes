@@ -5,7 +5,7 @@ var UserSchema = new mongoose.Schema({
   last_name : {type: String, required:true},
   email : {type: String, required:true},
   password : {type: String, required:true},
-  favourites: [{ type: mongoose.Schema.Types.ObjectId, ref: "Shoe" }]//double check the shoe in this line
+  shoe_rack: [{ type: mongoose.Schema.Types.ObjectId, ref: "Shoe" }]//double check the shoe in this line
   //maybe have wallet
   // maybe favs should be shoerack
 });

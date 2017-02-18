@@ -2,8 +2,20 @@
   <h1>All shoes</h1>
 </div>
 <h3><%=shoe.name%></h3>
+<img src="<%=shoe.image%>">
 <p><%=shoe.colorway%></p>
 <p><%=shoe.material%></p>
 <p><%=shoe.price%></p>
 <p><%=shoe.year%></p>
-<p><%=shoe.image%></p>
+
+<form class="delete" action="/<%= shoe.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
+<form class="addToShoerack" action="/<%= shoe.id %>" method="post">
+  <input type="hidden" name="_method" value="update">
+  <input type="submit" value="update">
+</form>
+
+
+
