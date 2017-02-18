@@ -1,9 +1,9 @@
 var Shoes = require('../../models/shoes');
 //api testing problem I cant login
-function indexApi(req, res) {
 
+function indexApi(req, res) {
   Shoes.find({} , function(err, shoes) {
-    if(err) return res.status(500).send(err);
+    if(err) return res.status(500).json(err);
     res.json({
       shoes: shoes
     });
@@ -24,7 +24,8 @@ function createApi(req, res) {
   Shoes.create(req.body, function(err, shoe){
     if(err) req.flash('error' , err.message);
       res.json({
-      shoe: shoe
+      shoe: shoe,
+      message:created
       });
   });
 }
@@ -38,6 +39,7 @@ function updateApi(req, res) {
     function(err , shoe){
       if(err) return res.status(500).send(err);
       res.json({
+        message:updated
         shoe: shoe
       });
     }
@@ -46,10 +48,9 @@ function updateApi(req, res) {
 
 function deleteApi(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
-    //sucess message in flash
+    res.status(200).redirect('/api/shoes')
   });
 }
-
 
 module.exports = {
   index: indexApi,

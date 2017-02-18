@@ -8,11 +8,17 @@
 <p><%=shoe.price%></p>
 <p><%=shoe.year%></p>
 
+
+<form class="edit" action="/<%= shoe.id %>/edit" method="post">
+  <input type="hidden" name="_method" value="edit">
+  <input type="submit" value="edit">
+</form>
+
 <form class="delete" action="/<%= shoe.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
-<form class="addToShoerack" action="users/<%= shoe.id %>" method="post">
+<form class="update" action="/<%= shoe.id %>" method="post">
   <input type="hidden" name="_method" value="update">
   <input type="submit" value="update">
 </form>
