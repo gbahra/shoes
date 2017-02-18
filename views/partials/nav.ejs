@@ -1,14 +1,16 @@
 <nav>
   <% if(user) { %>
-    <a href="/">Posts</a>
-    <a href="/new">New Post</a>
-    <form action="/sessions" method="POST">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout">
-    </form>
-    <p>Welcome, <%= user.first_name %></p>
+    <div id ="logged" >
+      <a href="/">Posts</a>
+      <a href="/new">New Post</a>
+      <form action="/sessions" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+      </form>
+    </div>
   <% } else { %>
     <a href="/sessions/new">Login</a>
     <a href="/users/new">Register</a>
   <% } %>
 </nav>
+<p>Welcome, <%= user.first_name %></p>
