@@ -8,11 +8,9 @@
 <p><%=shoe.price%></p>
 <p><%=shoe.year%></p>
 
+<span class="glyphicon glyphicon-thumbs-up">&#xe125;</span>
 
-<form class="edit" action="/<%= shoe.id %>/edit" method="post">
-  <input type="hidden" name="_method" value="edit">
-  <input type="submit" value="edit">
-</form>
+<a href="/<%= shoe.id %>/edit">edit</a>
 
 <form class="delete" action="/<%= shoe.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

@@ -14,7 +14,7 @@ function showApi(req, res) {
   Shoes.findById(req.params.id , function(err, shoe) {
     if(!shoe) return res.status(404).send("Not found");
     if(err) return res.status(500).send(err);
-    res..status(200).json({
+    res.status(200).json({
       shoe: shoe
     });
   });
@@ -39,7 +39,7 @@ function updateApi(req, res) {
     function(err , shoe){
       if(err) return res.status(500).send(err);
       res.status(204).json({
-        message:updated
+        message:updated,
         shoe: shoe
       });
     }
