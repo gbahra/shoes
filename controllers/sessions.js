@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var bodyParser = require('body-parser');
 
 // NEW ( AKA Login )
 function newSession(req,res) {
@@ -8,10 +9,7 @@ function newSession(req,res) {
 // CREATE - Handles logins
 function createSession(req,res){
 
-  // look up the user with the details from the form
   User.findOne({email: req.body.email} , function(err, user){
-
-      // did we find a user and does the password match
       if(user && user.password == req.body.password) {
 
         // save the user to the session ( log them in )

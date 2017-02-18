@@ -24,6 +24,7 @@ function updateUser(req,res){
   Shoe.findById(req.params.id, function(err,shoe){
     if(err) req.flash('error' , err.message);
     //find out whihc user and give them shoe.id on shoerack shoe_rack:shoe.id;
+    //do this using first name on the screen somehow
 
     res.redirect("/");
   });

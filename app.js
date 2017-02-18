@@ -63,7 +63,6 @@ app.use(function(req,res,next) {
   } else {
     // load the user with the ID in the session
     User.findById(req.session.user , function(err, user){
-      console.log(req.sessions.user)
       if(user) {
         // add the user to the request object
         req.user = user;
