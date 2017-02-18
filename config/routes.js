@@ -14,6 +14,9 @@ var shoesApiController = require('../controllers/api/shoes');
       .get(sessionsController.new);
 
 // users
+ router.route('/users/shoeRack')
+      .get(usersController.index);
+
  router.route('/users')
       .post(usersController.create);
 

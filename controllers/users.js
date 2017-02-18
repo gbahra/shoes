@@ -2,6 +2,16 @@ var User= require("../models/user");
 var Shoe= require("../models/shoes");
 var currentUser;
 
+function indexUser(req,res) {
+  User.find({} , function(err, user) {
+    if(err) return res.status(500).send(err);
+    Shoe.findById(user.shoerack, function(err,shoe){
+        res.render("shoes/shoeRack" , {
+        });
+    })
+  });
+}
+
 function newUser(req,res) {
   res.render('users/new');
 }
@@ -32,6 +42,7 @@ function updateUser(req,res){
 }
 
 module.exports = {
+  index: indexUser,
   new: newUser,
   create: createUser,
   update:updateUser

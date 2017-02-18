@@ -22,6 +22,8 @@ form{
 }
 #logged > form{
   display: inline-block;
-  background-color: #fff;
+}
+#logged{
+   background-color: #EEEEEE;
 
 }
