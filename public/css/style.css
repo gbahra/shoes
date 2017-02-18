@@ -1,16 +1,17 @@
-body{
-  background-color:aquamarine;
-}
 img{
   height:200px;
   width:200px;
 }
-div{
-  margin-left: 20px;
-}
+
 label{
   margin-left: 20px;
 }
 .glyphicon glyphicon-thumbs-up{
   content:"\e125";
+}
+.glyphicon glyphicon-thumbs-down{
+  content:"\e126";
+}
+#shoe{
+  margin-left: 40%
 }

@@ -1,25 +1,26 @@
 <div class="jumbotron text-center">
   <h1>All shoes</h1>
 </div>
-<h3><%=shoe.name%></h3>
-<img src="<%=shoe.image%>">
-<p><%=shoe.colorway%></p>
-<p><%=shoe.material%></p>
-<p><%=shoe.price%></p>
-<p><%=shoe.year%></p>
+<div id = "shoe">
+  <h3><%=shoe.name%></h3>
+  <img src="<%=shoe.image%>">
+  <p><%=shoe.colorway%></p>
+  <p><%=shoe.material%></p>
+  <p><%=shoe.price%></p>
+  <p><%=shoe.year%></p>
+  <span class = "glyphicon glyphicon-thumbs-up text-info"></span>
+  <span class = "glyphicon glyphicon-thumbs-down text-info"></span>
+  <a href="/<%= shoe.id %>/edit">edit</a>
 
-<span class="glyphicon glyphicon-thumbs-up">&#xe125;</span>
-
-<a href="/<%= shoe.id %>/edit">edit</a>
-
-<form class="delete" action="/<%= shoe.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-</form>
-<form class="update" action="/<%= shoe.id %>" method="post">
-  <input type="hidden" name="_method" value="update">
-  <input type="submit" value="update">
-</form>
+  <form class="delete" action="/<%= shoe.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+  <form class="update" action="/<%= shoe.id %>" method="post">
+    <input type="hidden" name="_method" value="update">
+    <input type="submit" value="update">
+  </form>
+</div>
 
 
 
