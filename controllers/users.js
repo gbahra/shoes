@@ -1,12 +1,13 @@
 var User= require("../models/user");
 var Shoe= require("../models/shoes");
+var bodyParser = require('body-parser');
 var currentUser;
 
 function indexUser(req,res) {
   User.find({} , function(err, user) {
     if(err) return res.status(500).send(err);
+    console.log(user.shoe_rack)
     Shoe.findById(user.shoe_rack, function(err,shoes){
-        console.log(shoes);
         res.render("users/shoeRack",{
           shoes:shoes
         });
@@ -32,11 +33,16 @@ function createUser(req,res){
 }
 
 function updateUser(req,res){
+  console.log('adsad')
   Shoe.findById(req.params.id, function(err,shoe){
-    if(err) req.flash('error' , err.message);
+    console.log(shoe)
+    if(err){
+      req.flash('error' , err.message);
+    }
     //find out whihc user and give them shoe.id on shoerack shoe_rack:shoe.id;
     //do this using first name on the screen somehow
     User.findByIdAndUpdate(currentUser, {shoe_rack: shoe.id}, function(err,user){
+      console.log(shoe.id, currentUser, user);
       if(err) req.flash('error' , err.message);
     })
     res.redirect("/");

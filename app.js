@@ -78,20 +78,13 @@ app.use(function(req,res,next) {
     });
   }
 });
-
-
-
-// body parser for json data
-
-
-
-// app.use(function(req, res, next) {
-//   var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
-//   if(urls.indexOf(req.url) === -1) {
-//     if (!req.user) return res.redirect('/sessions/new')
-//     }
-//   next()
-// });
+app.use(function(req, res, next) {
+  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
+  if(urls.indexOf(req.url) === -1) {
+    if (!req.user) return res.redirect('/sessions/new')
+     }
+  next()
+});
 
 app.use(router);
 
