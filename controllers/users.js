@@ -4,16 +4,28 @@ var bodyParser = require('body-parser');
 var currentUser;
 
 function indexUser(req,res) {
-  User.find({} , function(err, user) {
+//   console.log('yh')
+//   User.find({} , function(err, user) {
+//     if(err) return res.status(500).send(err);
+//     console.log(user, user.shoe_rack)
+//     Shoe.findById(user.shoe_rack, function(err,shoes){
+//       console.log(shoes);
+//         res.render("users/shoeRack",{
+//           shoes:shoes
+//         });
+//     });
+//   });
+// }
+ User.findById(currentUser).populate("shoes").exec(function(err, user) {
+    // check for errors and return 500 error and message if found
     if(err) return res.status(500).send(err);
-    console.log(user.shoe_rack)
-    Shoe.findById(user.shoe_rack, function(err,shoes){
-        res.render("users/shoeRack",{
-          shoes:shoes
-        });
+    // data return so now we can render
+    res.render("users/shoerack" , {
+      shoes: user.shoe_rack
     });
   });
 }
+
 
 function newUser(req,res) {
   res.render('users/new');

@@ -25,6 +25,10 @@ form{
 }
 nav{
    background-color: #EEEEEE;
+
+}
+.jumbotron {
+  margin-top: -10px;
 }
 
 #messages{
@@ -35,7 +39,5 @@ nav{
   background-color: #EEEEEE;
 }
 
-.jumbotron {
-  margin-top: -10px;
-}
+
 
