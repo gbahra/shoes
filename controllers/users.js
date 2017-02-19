@@ -5,10 +5,12 @@ var currentUser;
 function indexUser(req,res) {
   User.find({} , function(err, user) {
     if(err) return res.status(500).send(err);
-    Shoe.findById(user.shoerack, function(err,shoe){
-        res.render("shoes/shoeRack" , {
+    Shoe.findById(user.shoe_rack, function(err,shoes){
+        console.log(shoes);
+        res.render("users/shoeRack",{
+          shoes:shoes
         });
-    })
+    });
   });
 }
 

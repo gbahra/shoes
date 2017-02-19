@@ -23,7 +23,19 @@ form{
 #logged > form{
   display: inline-block;
 }
-#logged{
+nav{
    background-color: #EEEEEE;
-
 }
+
+#messages{
+  background-color: #EEEEEE;
+}
+
+#welcome{
+  background-color: #EEEEEE;
+}
+
+.jumbotron {
+  margin-top: -10px;
+}
+

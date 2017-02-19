@@ -3,7 +3,7 @@
     <div id ="logged" >
       <a href="/">All Shoes</a>
       <a href="/new">New Shoe</a>
-      <a href="/new">Shoerack</a>
+      <a href="/users/shoeRack">Shoerack</a>
       <form action="/sessions" method="POST">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">
@@ -14,4 +14,4 @@
     <a href="/users/new">Register</a>
   <% } %>
 </nav>
-<p>Welcome, <%= user.first_name %></p>
+<p id  = "welcome">Welcome, <%= user.first_name %></p>
