@@ -1,46 +1,45 @@
-<form action="/<%shoe.id%>" method="POST">
-   <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">name</label>
+<form action="/<%= shoe._id %>" method="POST">
+  <div class="form-group row">
+     <label for="name" class="col-2 col-form-label">Name:</label>
      <div class="col-10">
-       <input class="form-control" name:"name" type="text" value="<%= shoe.name %>" id="example-text-input">
+     <input type="text" name="name" value="<%= shoe.name %>">
      </div>
    </div>
    <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">Colorway:</label>
+     <label for="colorway" class="col-2 col-form-label">Colorway:</label>
      <div class="col-10">
-       <input class="form-control" name:"colorway" type="text" value="<%= shoe.colorway %>" id="example-text-input">
+       <input type="text" name="colorway" value="<%= shoe.colorway %>">
      </div>
    </div>
    <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">Materials:</label>
+     <label for="materials" class="col-2 col-form-label">Materials:</label>
      <div class="col-10">
-       <input class="form-control" name:"materials" type="text" value="<%= shoe.materials %>" id="example-text-input">
+      <input type="text" name="materials" value="<%= shoe.materials %>">
+     </div>
+   </div>
+    <div class="form-group row">
+     <label for="price" class="col-2 col-form-label">Price:</label>
+     <div class="col-10">
+      <input type="number" name="price" value="<%= shoe.price %>">
+     </div>
+   </div>
+  <div class="form-group row">
+     <label for="year" class="col-2 col-form-label">Year:</label>
+     <div class="col-10">
+       <input type="number" name="year" value="<%=shoe.year %>">
      </div>
    </div>
    <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">Price:</label>
+     <label for="image" class="col-2 col-form-label">Image URL:</label>
      <div class="col-10">
-       <input class="form-control" type="number" value="<%= shoe.price %>" id="example-text-input">
-     </div>
-   </div>
-   <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">Year:</label>
-     <div class="col-10">
-       <input class="form-control" name:"year" type="number" value="<%= shoe.year %>" id="example-text-input">
-     </div>
-   </div>
-   <div class="form-group row">
-     <label for="example-text-input" class="col-2 col-form-label">Image URL:</label>
-     <div class="col-10">
-       <input class="form-control" name:"image" type="text" value="<%= shoe.image %>" id="example-text-input">
+       <input type="text" name="image" value="<%= shoe.image %>">
      </div>
    </div>
    <input type="submit" value="Save Post">
-   <% if(shoe.id != "") { %>
+   <% if(shoe._id != "") { %>
    <input type="hidden" name="_method" value="PUT">
    <% } %>
  </form>
-
 
 
 

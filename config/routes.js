@@ -42,7 +42,7 @@ router.route('/')
       .post(shoesController.create);
 
 router.route('/new')
-      .get(shoesController.new)
+      .get(shoesController.new);
 
 router.route('/:id')
       .get(shoesController.show)

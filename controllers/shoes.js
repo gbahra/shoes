@@ -1,7 +1,6 @@
 var Shoes = require('../models/shoes');
 
 function indexShoes(req, res) {
-
   Shoes.find({} , function(err, shoes) {
     if(err) return res.status(500).send(err);
     res.render("shoes/index" , {
@@ -53,13 +52,12 @@ function editShoes(req, res) {
 }
 
 function updateShoes(req, res) {
-  console.log("yh")
+  console.log("yh");
   Shoes.findByIdAndUpdate(
     req.params.id,
     { $set:  req.body },
     { runValidators: true },
     function(err , shoe){
-
       if(err) return res.status(500).send(err);
       res.redirect("/");
     }
