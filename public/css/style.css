@@ -1,3 +1,11 @@
+*{
+  font: 400 14px/1.6 'Open Sans', Verdana, Helvetica, sans-serif;
+}
+
+h1, h3 {
+  font-family: 'Bree Serif', serif;
+}
+
 img{
   height:200px;
   width:200px;
@@ -27,9 +35,8 @@ form{
 }
 nav{
    background-color: #EEEEEE;
-   margin-top: 160px;
+   margin-top: 140px;
    display: inline-block;
-
 }
 nav > div > a{
   margin-right: 10px;
@@ -41,12 +48,11 @@ nav > div > ul > li > form  > input {
      border:none;
      padding:0!important;
      font: inherit;
-     /*border is optional*/
-     border-bottom:1px solid #444;
-     cursor: pointer;
+     margin-top: 10px;
+     color: #577AB7;
 }
 .jumbotron {
-  margin-top: -245px;
+  margin-top: -210px;
 }
 
 #messages{
@@ -55,6 +61,7 @@ nav > div > ul > li > form  > input {
 
 #welcome{
   margin-top: 15px;
+  margin-left: 5px;
 }
 
 
