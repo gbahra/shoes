@@ -5,12 +5,12 @@
   <div class="row">
     <% for (var i = 0; i<shoes.length; i++){%>
       <div class="col-sm-4">
-        <h3><a href="/<%=shoes[i].id%>"><%=shoes[i].name%></a></h3>
+        <a href="/<%=shoes[i].id%>"><h3><%=shoes[i].name%></h3></a>
         <img src=<%=shoes[i].image%>>
-        <p><%=shoes[i].colorway%></p>
-        <p><%=shoes[i].material%></p>
-        <p><%=shoes[i].price%></p>
-        <p><%=shoes[i].year%></p>
+        <p>Colorway: <%=shoes[i].colorway%></p>
+        <p>Material: <%=shoes[i].materials%></p>
+        <p>Price: <%=shoes[i].price%></p>
+        <p>Year: <%=shoes[i].year%></p>
       </div>
     <%}%>
   </div>

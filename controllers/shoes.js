@@ -22,14 +22,15 @@ function showShoes(req, res) {
 
 function newShoes(req , res) {
   var newShoes = {
+  id : "",
   name : "",
   colorway : "",
-  material : "",
+  materials : "",
   price : 0,
-  year: 0
+  year: 0,
+  image: ""
   }
   res.render("shoes/new" , {
-    title: "New Shoes",
     shoe: newShoes
   });
 }
@@ -52,11 +53,13 @@ function editShoes(req, res) {
 }
 
 function updateShoes(req, res) {
+  console.log("yh")
   Shoes.findByIdAndUpdate(
     req.params.id,
     { $set:  req.body },
     { runValidators: true },
     function(err , shoe){
+
       if(err) return res.status(500).send(err);
       res.redirect("/");
     }

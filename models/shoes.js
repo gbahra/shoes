@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
 
 var ShoeSchema = new mongoose.Schema({
-  name : {type: String, required:true},
-  image: {type: String},
-  colorway : {type: String, required:true},
-  materials : {type: String, required:true},
-  price : {type: Number, required:true},
-  year: {type: Number, required:true},
+  name : {type: String},
+  colorway : {type: String},
+  materials : {type: String},
+  price : {type: Number},
+  year: {type: Number},
   image: {type: String}
   // count is an array for more than one image for the fade
   //price is actually value
