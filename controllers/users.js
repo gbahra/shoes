@@ -16,12 +16,12 @@ function indexUser(req,res) {
 //     });
 //   });
 // }
- User.findById(currentUser).populate("shoes").exec(function(err, user) {
+ User.findById(currentUser).populate("shoes_rack").exec(function(err, user) {
     // check for errors and return 500 error and message if found
     if(err) return res.status(500).send(err);
     // data return so now we can render
     res.render("users/shoerack" , {
-      shoes: user.shoe_rack
+      shoes: user.shoe_rack.shoes
     });
   });
 }

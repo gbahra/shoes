@@ -7,6 +7,5 @@ var UserSchema = new mongoose.Schema({
   password : {type: String, required:true},
   shoe_rack: [{ type: mongoose.Schema.Types.ObjectId, ref: "Shoe" }]//double check the shoe in this line
   //maybe have wallet
-  // maybe favs should be shoerack
 });
 module.exports = mongoose.model('User' , UserSchema);

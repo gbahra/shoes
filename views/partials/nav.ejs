@@ -1,17 +1,24 @@
 <nav>
   <% if(user) { %>
     <div id ="logged" >
-      <a href="/">All Shoes</a>
-      <a href="/new">New Shoe</a>
-      <a href="/users/shoeRack">Shoerack</a>
-      <form action="/sessions" method="POST">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Logout">
-      </form>
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/">All Shoes</a></li>
+        <li role="presentation"><a href="/new">New Shoe</a></li>
+        <li role="presentation"><a href="/users/shoeRack">Shoerack</a></li>
+        <li role="presentation">
+          <form action="/sessions" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout">
+          </form>
+        </li>
+      </ul>
     </div>
   <% } else { %>
-    <a href="/sessions/new">Login</a>
-    <a href="/users/new">Register</a>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="/sessions/new">Login</a></li>
+      <li role="presentation"><a href="/users/new">Register</a></li>
+    </ul>
   <% } %>
 </nav>
-<p id  = "welcome">Welcome, <%= user.first_name %></p>
+<p id  = "welcome">Welcome <%= user.first_name %></p>
+
