@@ -63,6 +63,20 @@ nav > div > ul > li > form  > input {
   margin-top: 15px;
   margin-left: 5px;
 }
+button{
+  width:50px;
+}
+ button > a{
+  color:black;
+ }
+#thumbs{
+  display:block;
+}
+#thumbs > .glyphicon glyphicon-thumbs-up, #thumbs > p, #thumbs > .glyphicon glyphicon-thumbs-down{
+  display:inline-block;
+}
 
-
+#buttons > form{
+  margin: 3px 0px;
+}
 

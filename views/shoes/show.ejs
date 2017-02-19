@@ -4,24 +4,29 @@
 <div id = "shoe">
   <h3><%=shoe.name%></h3>
   <img src="<%=shoe.image%>">
-  <p><%=shoe.colorway%></p>
-  <p><%=shoe.material%></p>
-  <p><%=shoe.price%></p>
-  <p><%=shoe.year%></p>
-  <span class = "glyphicon glyphicon-thumbs-up text-info"></span>
-  <span class = "glyphicon glyphicon-thumbs-down text-info"></span>
-  <a href="/<%= shoe.id %>/edit">edit</a>
+  <p>Colorway: <%=shoe.colorway%></p>
+  <p>Materials: <%=shoe.materials%></p>
+  <p>Price(USD): <%=shoe.price%></p>
+  <p>Year: <%=shoe.year%></p>
+  <div id = "thumbs">
+    <span class = "glyphicon glyphicon-thumbs-up text-info"></span>
+    <p id = "increment">0</p>
+    <span class = "glyphicon glyphicon-thumbs-down text-info"></span>
+  </div>
 
-  <form action="/<%= shoe.id %>" method="post">
-    <input type="hidden" name="_method" value="put">
-    <input type="submit" value="update">
-  </form>
 
-  <form class="delete" action="/<%= shoe.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete">
-  </form>
+  <div id = "buttons">
+    <button><a href="/<%= shoe.id %>/edit">edit</a></button>
+    <form action="/<%= shoe.id %>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <input type="submit" value="update">
+    </form>
 
+    <form class="delete" action="/<%= shoe.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  </div>
 </div>
 
 
