@@ -52,7 +52,7 @@ function ajaxShoesApi(req, res) {
     { new: true},
     function(err , shoe){
       if(err) return res.status(500).send(err);
-      return res.status(200).send({ likes: shoe.likes, upOrDown: upOrDown })
+      return res.status(200).json({ likes: shoe.likes, upOrDown: upOrDown })
     }
   );
 }
