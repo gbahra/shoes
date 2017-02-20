@@ -52,7 +52,6 @@ function editShoes(req, res) {
 }
 
 function updateShoes(req, res) {
-  console.log("yh");
   Shoes.findByIdAndUpdate(
     req.params.id,
     { $set:  req.body },
@@ -60,6 +59,17 @@ function updateShoes(req, res) {
     function(err , shoe){
       if(err) return res.status(500).send(err);
       res.redirect("/");
+    }
+  )
+}
+
+function ajaxShoes(req, res) {
+  console.log("yhhh")
+  Shoes.findByIdAndUpdate(
+    req.params.id,
+    {likes: likes},
+    function(err , shoe){
+      if(err) return res.status(500).send(err);
     }
   );
 }
@@ -77,5 +87,6 @@ module.exports = {
   create: createShoes,
   edit: editShoes,
   update: updateShoes,
+  ajax: ajaxShoes,
   delete: deleteShoes
 }

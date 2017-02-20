@@ -16,8 +16,8 @@
 
   <div id = "buttons">
     <button><a href="/<%= shoe.id %>/edit">edit</a></button>
-    <form action="<%= shoe.id %>/users" method="POST">
-      <input type="hidden" name="_method" value="PUT">
+    <form action="<%= shoe.id %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
       <input type="submit" value="shoerack">
     </form>
 

@@ -5,7 +5,6 @@ $(function(){
   var likes;
   var id;
   var name = $('h3').text();
-
   $.get('api/shoes', function(data){
     for(var i =0; i<data.shoes.length; i++){
       if(data.shoes[i].name == name){
@@ -18,7 +17,7 @@ $(function(){
 
   $('#up').click(function(){
     $.ajax({
-      type: 'UPDATE',
+      type: 'PATCH',
       url: "/" + _id,
       likes: likes++
       })
@@ -27,7 +26,7 @@ $(function(){
 
   $('#down').click(function(){
     $.ajax({
-      type: 'PUT',
+      type: 'PATCH',
       url: "/" + _id,
       likes: likes--
       }).done({
