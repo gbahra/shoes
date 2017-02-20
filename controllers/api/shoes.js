@@ -45,12 +45,14 @@ function updateApi(req, res) {
   );
 }
 function ajaxShoesApi(req, res) {
-  console.log("yhhh")
+  var upOrDown = (req.body.up === "true") ? 1 : -1;
   Shoes.findByIdAndUpdate(
     req.params.id,
-    {likes: likes},
+    { $inc :{likes: upOrDown}},
+    { new: true},
     function(err , shoe){
       if(err) return res.status(500).send(err);
+      return res.status(200).send({ likes: shoe.likes, upOrDown: upOrDown })
     }
   );
 }
