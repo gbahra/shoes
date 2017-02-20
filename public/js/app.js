@@ -46,7 +46,7 @@ $(function(){
     })
   })
 function deadShoe(data){
-  if(data.likes == -10){
+  if(data.likes === -10){
     console.log('deadd')
       $.ajax({
        type: 'DELETE',
@@ -57,5 +57,5 @@ function deadShoe(data){
 
    }
 }
-})
+} )
 
