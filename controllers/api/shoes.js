@@ -59,7 +59,8 @@ function ajaxShoesApi(req, res) {
 
 function deleteApi(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
-    res.status(200).redirect('/api/shoes')
+    res.status(200).redirect('/')
+    console.log("delete")
   });
 }
 
