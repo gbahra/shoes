@@ -1,4 +1,4 @@
-<form action="/<%= shoe._id %>" method="POST">
+<form action="/<%= shoe.id %>" method="POST">
   <div class="form-group row">
      <label for="name" class="col-2 col-form-label">Name:</label>
      <div class="col-10">
@@ -35,8 +35,9 @@
        <input type="text" name="image" value="<%= shoe.image %>">
      </div>
    </div>
+   <input type="hidden" name="likes" value="0">
    <input type="submit" value="Save Post">
-   <% if(shoe._id != "") { %>
+   <% if(shoe.id != "") { %>
    <input type="hidden" name="_method" value="PUT">
    <% } %>
  </form>

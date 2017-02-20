@@ -10,16 +10,15 @@
   <p>Year: <%=shoe.year%></p>
   <div id = "thumbs">
     <span id = "up" class = "glyphicon glyphicon-thumbs-up text-info"></span>
-    <p id = "increment">0</p>
+    <p id = "increment"></p>
     <span id = "down" class = "glyphicon glyphicon-thumbs-down text-info"></span>
   </div>
 
-
   <div id = "buttons">
     <button><a href="/<%= shoe.id %>/edit">edit</a></button>
-    <form action="/<%= shoe.id %>" method="post">
-      <input type="hidden" name="_method" value="put">
-      <input type="submit" value="update">
+    <form action="<%= shoe.id %>/users" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <input type="submit" value="shoerack">
     </form>
 
     <form class="delete" action="/<%= shoe.id %>" method="post">
