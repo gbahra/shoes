@@ -14,7 +14,7 @@ var shoesApiController = require('../controllers/api/shoes');
       .get(sessionsController.new);
 // users
  router.route('/users/shoeRack')
-      .get(usersController.index);
+      .get(usersController.shoeRack);
 
  router.route('/users')
       .post(usersController.create);
@@ -33,6 +33,7 @@ var shoesApiController = require('../controllers/api/shoes');
  router.route('/api/shoes/:id')
    .get(shoesApiController.show)
    .put(shoesApiController.update)
+   .patch(shoesApiController.ajax)
    .delete(shoesApiController.delete);
 
 // shoes
@@ -46,7 +47,6 @@ router.route('/new')
 router.route('/:id')
       .get(shoesController.show)
       .put(shoesController.update)
-      .patch(shoesController.ajax)
       .delete(shoesController.delete);
 
 router.route('/:id/edit')

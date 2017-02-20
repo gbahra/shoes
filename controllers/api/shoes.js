@@ -1,5 +1,4 @@
 var Shoes = require('../../models/shoes');
-//api testing problem I cant login
 
 function indexApi(req, res) {
   Shoes.find({} , function(err, shoes) {
@@ -45,6 +44,16 @@ function updateApi(req, res) {
     }
   );
 }
+function ajaxShoesApi(req, res) {
+  console.log("yhhh")
+  Shoes.findByIdAndUpdate(
+    req.params.id,
+    {likes: likes},
+    function(err , shoe){
+      if(err) return res.status(500).send(err);
+    }
+  );
+}
 
 function deleteApi(req , res) {
   Shoes.findByIdAndRemove(req.params.id , function(err) {
@@ -56,6 +65,7 @@ module.exports = {
   index: indexApi,
   show: showApi,
   create: createApi,
+  ajax: ajaxShoesApi,
   update: updateApi,
   delete: deleteApi
 }

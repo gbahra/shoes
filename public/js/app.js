@@ -1,7 +1,6 @@
 $(function(){
   var url = window.location.pathname;
   var _id = url.substring(url.lastIndexOf('/') + 1);
-  console.log(_id)
   var likes;
   var id;
   var name = $('h3').text();
@@ -18,7 +17,7 @@ $(function(){
   $('#up').click(function(){
     $.ajax({
       type: 'PATCH',
-      url: "/" + _id,
+      url: "/api/shoes/" + _id,
       likes: likes++
       })
     $('#increment').html(likes)
@@ -27,7 +26,7 @@ $(function(){
   $('#down').click(function(){
     $.ajax({
       type: 'PATCH',
-      url: "/" + _id,
+      url: "/api/shoes/" + _id,
       likes: likes--
       }).done({
 

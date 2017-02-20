@@ -1,9 +1,8 @@
 var User= require("../models/user");
 var Shoe= require("../models/shoes");
 var bodyParser = require('body-parser');
-var currentUser;
 
-function indexUser(req,res) {
+function shoeRack(req,res) {
 //   console.log('yh')
 //   User.find({} , function(err, user) {
 //     if(err) return res.status(500).send(err);
@@ -16,12 +15,12 @@ function indexUser(req,res) {
 //     });
 //   });
 // }
- User.findById(currentUser).populate("shoes_rack").exec(function(err, user) {
+  User.findById(req.user._id).populate("shoe_rack").exec(function(err, user) {
     // check for errors and return 500 error and message if found
     if(err) return res.status(500).send(err);
     // data return so now we can render
     res.render("users/shoerack" , {
-      shoes: user.shoe_rack.shoes
+      shoes: user.shoe_rack
     });
   });
 }
@@ -53,17 +52,20 @@ function updateUser(req,res){
     }
     //find out whihc user and give them shoe.id on shoerack shoe_rack:shoe.id;
     //do this using first name on the screen somehow
-    User.findByIdAndUpdate(currentUser, {shoe_rack: shoe.id}, function(err,user){
-      console.log(shoe.id, currentUser, user);
-      if(err) req.flash('error' , err.message);
-    })
-    res.redirect("/");
-  });
+    User.findByIdAndUpdate(req.user._id,
+      {$addToSet: {shoe_rack: shoe.id}},
+      {new: true},
+      function(err,user){
+        console.log(user);
+        if(err) req.flash('error' , err.message);
+        res.redirect('/')
+      })
+    });
 }
 
 module.exports = {
-  index: indexUser,
   new: newUser,
   create: createUser,
-  update:updateUser
+  update:updateUser,
+  shoeRack: shoeRack
 }
