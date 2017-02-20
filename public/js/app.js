@@ -1,7 +1,11 @@
 $(function(){
+  var url = window.location.pathname;
+  var _id = url.substring(url.lastIndexOf('/') + 1);
+  console.log(_id)
   var likes;
   var id;
   var name = $('h3').text();
+
   $.get('api/shoes', function(data){
     for(var i =0; i<data.shoes.length; i++){
       if(data.shoes[i].name == name){
@@ -11,16 +15,27 @@ $(function(){
     }
   $('#increment').html(likes)
   });
+
   $('#up').click(function(){
-    likes++;
-    //update database
+    $.ajax({
+      type: 'UPDATE',
+      url: "/" + _id,
+      likes: likes++
+      })
     $('#increment').html(likes)
   })
+
   $('#down').click(function(){
-    likes--;
-    //update database
+    $.ajax({
+      type: 'PUT',
+      url: "/" + _id,
+      likes: likes--
+      }).done({
+
+      })
     $('#increment').html(likes)
   })
+
   if(likes === -10){
     //delete shoe
   }
